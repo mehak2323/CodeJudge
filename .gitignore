@@ -1,0 +1,137 @@
+# .gitignore for Online Code Judge Application (MERN + Docker + AWS)
+# This file ensures sensitive data, build artifacts, dependencies, and temporary files
+# are not committed to Git, following industry best practices for security and cleanliness.
+# Place this file in the root directory (online-code-judge/).
+
+# Dependencies (Node.js)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backend-specific
+backend/node_modules/
+backend/npm-debug.log*
+backend/.env
+backend/coverage/
+backend/dist/
+backend/build/
+
+# Frontend-specific
+frontend/node_modules/
+frontend/npm-debug.log*
+frontend/.env
+frontend/build/
+frontend/dist/
+frontend/coverage/
+
+# Executor-specific
+executor/node_modules/
+executor/npm-debug.log*
+executor/.env
+executor/coverage/
+
+# Environment variables (all .env files to prevent secret leaks)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Docker
+# Ignore Docker-related files that shouldn't be versioned (e.g., local volumes, but keep Dockerfiles)
+.dockerignore  # Optional: If you have one, but usually not ignored
+.DS_Store
+# Docker data (not typically in repo, but ignore if present)
+docker-data/
+volumes/
+
+# Logs
+*.log
+logs/
+*.log.*
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microtask data
+.pids
+*.seed
+*.pid.lock
+
+# Compiled output (if using TypeScript or similar, though not in this project)
+dist/
+build/
+out/
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# AWS-specific (credentials, temp files)
+.aws/
+config/
+credentials
+!.aws/config  # Keep public config if needed, but usually ignore all
+*.tfstate
+*.tfstate.*
+terraform.tfstate.backup
+terraform.tfstate.backup.*
+terraform.tfvars
+
+# MongoDB dumps or local data (if seeding locally)
+dump/
+data/
+
+# Testing artifacts
+test-results/
+.nyc_output
+
+# Editor backups
+*~
+
+# Project-specific ignores
+# Ignore any local Docker volumes or temp builds
+tmp/
+temp/
+
+# Ensure no accidental commits of sensitive AWS keys or tokens
+*.pem  # SSH keys
+*.key
+id_rsa
+id_rsa.pub
+*.p12
+
+# End of .gitignore
