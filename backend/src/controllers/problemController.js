@@ -29,7 +29,7 @@ const getProblemById = async (req, res) => {
     if (!problem) return res.status(404).json({ message: 'Problem not found' });
     // Hide hiddenTestCases for non-admins
     const safeProblem = { ...problem.toObject() };
-    if (req.user.role !== 'admin') delete safeProblem.hiddenTestCases;
+    if (!req.user || req.user.role !== 'admin') delete safeProblem.hiddenTestCases;
     res.json(safeProblem);
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -13,7 +13,7 @@ const createSubmission = async (req, res) => {
       language,
     });
     // Queue the execution job
-    await queueService.addJob('executeSubmission', { submissionId: submission._id });
+    await queueService.addJob('code execution', { submissionId: submission._id });
     res.status(201).json(submission);
   } catch (error) {
     res.status(500).json({ message: error.message });
